@@ -46,7 +46,10 @@ app.get('/autoembed/:type/:id/:s/:e', (req, res)=>{
     var url  =  ""
     if(type=="mv"){url="https://autoembed.cc/embed/player.php?id="+ id}else{url="https://autoembed.cc/embed/mlplayer.php?id="+id+"&s="+s+"&e="+e+"&lang=english"}
    
-    axios.get(url).then(resp=>{
+    axios.get(url, {  headers: {
+        'Origin': 'https://autoembed.cc',
+    }}
+        ).then(resp=>{
     const root = parse(String(resp.data));       
     var str = String(root.querySelectorAll('script')[1]).substring(34).slice(0,-14)
      result = JSON.parse(str+"]}")
