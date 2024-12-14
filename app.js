@@ -54,7 +54,7 @@ app.get('/autoembed/:type/:id/:s/:e', (req, res)=>{
      res.send(result )     
     }).catch(err=>{
         console.log(err);
-        res.send(result)
+        res.send(err)
     })
 })
 app.get('/filmxy/:id', (req, res)=>{
