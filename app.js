@@ -47,7 +47,7 @@ app.get('/autoembed/:type/:id/:s/:e', (req, res)=>{
     if(type=="mv"){url="https://autoembed.cc/embed/player.php?id="+ id}else{url="https://autoembed.cc/embed/mlplayer.php?id="+id+"&s="+s+"&e="+e+"&lang=english"}
    
     axios.get(url, {  headers: {
-        'Origin': 'https://autoembed.cc',
+        'Origin': 'https://autoembed.cc', 'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'
     }}
         ).then(resp=>{
     const root = parse(String(resp.data));       
